@@ -274,3 +274,7 @@ section.sin-borde { border-top: none; }
   .con-fondo section { margin: 0 12px 18px; padding: 30px 0; }
   .con-fondo section .wrap { padding: 0 20px; }
 }
+
+.sinopsis p { font-family: var(--serif); font-size: 19px; line-height: 1.7; color: var(--ink); }
+.sinopsis p + p { margin-top: 16px; }
+@media (max-width: 760px) { .sinopsis p { font-size: 17px; } }
