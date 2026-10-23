@@ -282,3 +282,6 @@ section.sin-borde { border-top: none; }
 /* Ajuste óptico de la r en "rotos" (letra de Janett): baja a la línea de las demás y se acerca a la o */
 .r-ajuste { display: inline-block; position: relative; top: .065em; margin-right: -.04em; }
 .logo .r-ajuste { color: inherit; font-style: normal; }
+
+/* Frase de la portada en Lora itálica */
+.portada .bajada { font-style: italic; }
