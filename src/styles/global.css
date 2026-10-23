@@ -285,3 +285,9 @@ section.sin-borde { border-top: none; }
 
 /* Frase de la portada en Lora itálica */
 .portada .bajada { font-style: italic; }
+
+/* Más aire: interlineado del texto, frase y botones más separados */
+.sinopsis p { line-height: 1.9; }
+.con-fondo section p, .con-fondo .tbd { line-height: 1.85; }
+.portada .bajada { margin-top: 30px; }
+.portada .actions { margin-top: 42px; }
