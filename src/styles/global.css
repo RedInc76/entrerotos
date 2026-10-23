@@ -301,3 +301,18 @@ section.sin-borde { border-top: none; }
   box-shadow: 0 10px 40px rgba(63,54,46,.10), inset 0 1px 0 rgba(255,255,255,.5);
 }
 .con-fondo .tbd { background: rgba(255,255,255,.25); }
+
+/* Formulario de contacto */
+.contacto { display: grid; gap: 18px; margin-top: 26px; }
+.contacto label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; color: var(--ink); }
+.contacto .req { color: var(--rose); margin-left: 2px; }
+.contacto .opc { font-weight: 400; color: var(--ink-3); }
+.contacto input, .contacto textarea {
+  font: 400 16px var(--sans); color: var(--ink);
+  background: rgba(255,255,255,.55); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px 14px; width: 100%;
+}
+.contacto input:focus, .contacto textarea:focus { outline: 2px solid var(--violet-soft); border-color: var(--violet); }
+.contacto textarea { resize: vertical; min-height: 140px; }
+.contacto button { justify-self: start; border: none; cursor: pointer; font-family: var(--sans); }
+.contacto .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
