@@ -327,3 +327,5 @@ section.sin-borde { border-top: none; }
 .con-fondo details.ej, .con-fondo .callout { background: rgba(255,255,255,.45); border-color: rgba(255,255,255,.6); }
 .con-fondo .callout.alerta { background: rgba(248,236,232,.7); }
 .con-fondo .nota { background: rgba(248,236,232,.75); }
+
+.sinopsis .firma { font-style: italic; color: var(--ink-2); text-align: right; margin-top: 22px; }
