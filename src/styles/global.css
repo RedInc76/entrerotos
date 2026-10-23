@@ -227,5 +227,6 @@ section.sin-borde { border-top: none; }
 
 /* El nombre del libro, con la letra de Janett */
 .letra-janett { font-family: 'Janett', var(--serif); font-weight: 400; letter-spacing: .02em; }
-.hero-banner h1.letra-janett { font-size: clamp(64px, 11vw, 150px); line-height: 1; }
-.logo.letra-janett { font-size: 28px; }
+/* minúsculas escaladas x1.55 para que la altura de la x iguale a la de las mayúsculas anteriores */
+.hero-banner h1.letra-janett { font-size: clamp(99px, 17vw, 232px); line-height: .72; }
+.logo.letra-janett { font-size: 42px; line-height: 1; }
