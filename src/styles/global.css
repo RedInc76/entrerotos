@@ -1,7 +1,7 @@
 :root {
-  --paper: #faf7f2;
-  --paper-2: #f2ece2;
-  --paper-3: #e8dfd1;
+  --paper: #f1e5d6;
+  --paper-2: #ebdccb;
+  --paper-3: #e2d1bd;
   --ink: #3f362e;
   --ink-2: #6f6255;
   --ink-3: #9d8f80;
@@ -10,7 +10,7 @@
   --violet-bg: #eeebf7;
   --rose: #c98f86;
   --rose-bg: #f8ece8;
-  --line: #e3dbcf;
+  --line: #dccbb6;
   --serif: 'Lora', Georgia, serif;
   --sans: 'DM Sans', system-ui, sans-serif;
   --max: 1080px;
@@ -193,4 +193,28 @@ details.ej ul { padding-left: 18px; }
   .marco, .callout { padding: 24px 20px; }
   details.ej summary { padding: 18px; }
   details.ej .inner { padding: 0 18px 20px; }
+}
+
+/* ===== Portada estilo libro: una ilustración ancha, título sobre el cielo ===== */
+.site-header { border-bottom: none; background: transparent; }
+.hero-banner { position: relative; max-width: 1600px; margin: 0 auto; }
+.hero-banner img { width: 100%; height: auto; }
+.hero-banner .titulo {
+  position: absolute; top: 9%; left: 0; right: 0; text-align: center; padding: 0 16px;
+}
+.hero-banner h1 { font-size: clamp(44px, 8vw, 104px); font-weight: 400; letter-spacing: .04em; }
+.hero-banner .credits { color: var(--ink-2); margin-top: 6px; font-size: clamp(14px, 1.4vw, 18px); }
+.hero-banner .credits strong { color: var(--ink); font-weight: 500; }
+.intro { text-align: center; padding: 8px 0 40px; }
+.intro .actions { justify-content: center; }
+.lector { text-align: center; font-size: 15px; color: var(--ink-2); margin-top: 18px; }
+
+/* Secciones: una sola columna, sin cajas */
+section.tint { background: transparent; border-top: 1px solid var(--line); }
+section { border-top: 1px solid var(--line); }
+section.sin-borde { border-top: none; }
+
+@media (max-width: 760px) {
+  .hero-banner .titulo { position: static; padding: 28px 16px 8px; }
+  .hero-banner { display: flex; flex-direction: column; }
 }
