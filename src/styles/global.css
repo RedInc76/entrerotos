@@ -329,3 +329,21 @@ section.sin-borde { border-top: none; }
 .con-fondo .nota { background: rgba(248,236,232,.75); }
 
 .sinopsis .firma { font-style: italic; color: var(--ink-2); text-align: right; margin-top: 22px; }
+
+/* ===== Celular: que la pradera se vea ===== */
+@media (max-width: 760px) {
+  /* La pradera ocupa la parte de abajo de la pantalla, con más flores a la vista;
+     arriba sigue el papel liso, del mismo color que el cielo del dibujo */
+  .fondo-fijo { background: #f1e5d6; }
+  .fondo-fijo img {
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 62%;
+    object-fit: cover; object-position: 18% 100%;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%);
+            mask-image: linear-gradient(to bottom, transparent 0, #000 18%);
+  }
+  /* Hojas un poco más angostas y con aire entre ellas: la pradera asoma entre sección y sección */
+  .con-fondo section { margin: 0 20px 34vh; }
+  .con-fondo section.hoja-corta { margin-bottom: 34vh; }
+  .portada { min-height: calc(100svh - 120px); }
+}
