@@ -278,3 +278,7 @@ section.sin-borde { border-top: none; }
 .sinopsis p { font-family: var(--serif); font-size: 19px; line-height: 1.7; color: var(--ink); }
 .sinopsis p + p { margin-top: 16px; }
 @media (max-width: 760px) { .sinopsis p { font-size: 17px; } }
+
+/* Ajuste óptico de la r en "rotos" (letra de Janett): baja a la línea de las demás y se acerca a la o */
+.r-ajuste { display: inline-block; position: relative; top: .065em; margin-right: -.04em; }
+.logo .r-ajuste { color: inherit; font-style: normal; }
