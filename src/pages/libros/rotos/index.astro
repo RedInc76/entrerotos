@@ -3,29 +3,29 @@ import Base from '../../../layouts/Base.astro';
 ---
 <Base title="ROTOS — un libro ilustrado sobre el duelo" description="ROTOS, de Ruy Drisaldi, ilustrado por Laimutė Varkalaitė. Un libro sobre el duelo en la infancia, con ejercicios para acompañar la lectura.">
 
-  <div class="hero-banner">
-    <div class="titulo">
-      <h1 class="letra-janett">rotos</h1>
-      <p class="credits">Escrito por <strong>Ruy Drisaldi</strong> · Ilustrado por <strong>Laimutė Varkalaitė</strong></p>
-      <p class="bajada">Una historia sobre encontrar el corazón<br />en medio del dolor</p>
-    </div>
-    <img src="/img/rotos-pradera.webp"
-         srcset="/img/rotos-pradera-900.webp 900w, /img/rotos-pradera.webp 1672w"
-         sizes="100vw" width="1672" height="941"
-         alt="Ilustración de ROTOS: una pradera de flores azules bajo un cielo vacío, con tres mariposas" />
+  <!-- Fondo fijo: la pradera queda quieta y el contenido sube por encima -->
+  <div class="fondo-fijo" aria-hidden="true">
+    <img src="/img/rotos-pradera.webp" width="1672" height="941" alt="" />
   </div>
 
-  <div class="wrap intro">
-    <div class="text center">
-      <div class="actions">
-        <a class="btn" href="/libros/rotos/ejercicios/">Ejercicios gratuitos</a>
-        <a class="btn ghost" href="#conseguir">Conseguir el libro</a>
-      </div>
-      <!-- Para quien llega desde el QR del libro -->
-      <p class="lector">¿Ya tienes el libro? Los ejercicios para hacer después de leerlo están en <a href="/libros/rotos/ejercicios/">Ejercicios</a>.</p>
-      <p class="credit" style="margin-top:14px;">Ilustración © Laimutė Varkalaitė <span class="tbd pendiente" style="display:inline-block; padding:3px 10px; margin-left:6px; font-size:12px;">Confirmar permiso de uso web</span></p>
+  <div class="con-fondo">
+  <div class="portada">
+    <h1 class="letra-janett">rotos</h1>
+    <p class="credits">Escrito por <strong>Ruy Drisaldi</strong> · Ilustrado por <strong>Laimutė Varkalaitė</strong></p>
+    <p class="bajada">Una historia sobre encontrar el corazón<br />en medio del dolor</p>
+    <div class="actions">
+      <a class="btn" href="/libros/rotos/ejercicios/">Ejercicios gratuitos</a>
+      <a class="btn ghost" href="#conseguir">Conseguir el libro</a>
     </div>
   </div>
+
+  <section id="lector" class="hoja-corta">
+    <div class="wrap text center">
+      <!-- Para quien llega desde el QR del libro -->
+      <p class="lector">¿Ya tienes el libro? Los ejercicios para hacer después de leerlo están en <a href="/libros/rotos/ejercicios/">Ejercicios</a>.</p>
+      <p class="credit" style="margin-top:10px;">Ilustración © Laimutė Varkalaitė <span class="tbd pendiente" style="display:inline-block; padding:3px 10px; margin-left:6px; font-size:12px;">Confirmar permiso de uso web</span></p>
+    </div>
+  </section>
 
   <section id="sobre">
     <div class="wrap text">
@@ -67,7 +67,7 @@ import Base from '../../../layouts/Base.astro';
     </div>
   </section>
 
-  <section class="tint" id="ficha">
+  <section id="ficha">
     <div class="wrap">
       <span class="eyebrow">Ficha técnica</span>
       <dl class="ficha">
@@ -94,7 +94,7 @@ import Base from '../../../layouts/Base.astro';
     </div>
   </section>
 
-  <section class="tint" id="autor">
+  <section id="autor">
     <div class="wrap text">
       <span class="eyebrow">El autor</span>
       <h2>Ruy Drisaldi</h2>
@@ -114,4 +114,5 @@ import Base from '../../../layouts/Base.astro';
       </div>
     </div>
   </section>
+  </div>
 </Base>

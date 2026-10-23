@@ -236,3 +236,41 @@ section.sin-borde { border-top: none; }
   font-family: var(--serif); font-size: clamp(19px, 2.1vw, 27px); line-height: 1.4;
   color: var(--ink); margin-top: 18px;
 }
+
+/* ===== Fondo fijo (página del libro) ===== */
+.fondo-fijo { position: fixed; inset: 0; z-index: -1; height: 100lvh; overflow: hidden; background: var(--paper); }
+.fondo-fijo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; }
+
+.site-header { position: relative; z-index: 2; background: rgba(241,229,214,.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.site-footer { position: relative; z-index: 1; background: var(--paper); margin-top: 0; }
+
+/* Portada: ocupa la primera pantalla; el título vive en el cielo */
+.portada {
+  min-height: calc(100svh - 110px);
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: clamp(28px, 6vh, 64px) 16px 40px;
+}
+.portada h1.letra-janett { font-size: clamp(96px, 17vw, 232px); line-height: .72; }
+.portada .credits { color: var(--ink-2); margin-top: 10px; font-size: clamp(14px, 1.4vw, 18px); }
+.portada .credits strong { color: var(--ink); font-weight: 500; }
+.portada .bajada { font-family: var(--serif); font-size: clamp(19px, 2.1vw, 27px); line-height: 1.4; color: var(--ink); margin-top: 18px; }
+.portada .actions { justify-content: center; margin-top: 26px; }
+
+/* Hojas: cada sección es una hoja de papel que flota sobre la pradera */
+.con-fondo section {
+  max-width: 820px; margin: 0 auto 28px; padding: 44px 0;
+  border: none; border-radius: 18px;
+  background: rgba(250,245,237,.9);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 10px 40px rgba(63,54,46,.08);
+}
+.con-fondo section .wrap { padding: 0 44px; }
+.con-fondo section.hoja-corta { padding: 22px 0; }
+.con-fondo section:last-child { margin-bottom: 64px; }
+.con-fondo .tbd { background: rgba(255,255,255,.55); }
+
+@media (max-width: 760px) {
+  .portada { min-height: calc(100svh - 120px); }
+  .con-fondo section { margin: 0 12px 18px; padding: 30px 0; }
+  .con-fondo section .wrap { padding: 0 20px; }
+}
