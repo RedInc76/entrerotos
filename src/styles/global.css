@@ -316,3 +316,14 @@ section.sin-borde { border-top: none; }
 .contacto textarea { resize: vertical; min-height: 140px; }
 .contacto button { justify-self: start; border: none; cursor: pointer; font-family: var(--sans); }
 .contacto .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* Página de ejercicios sobre la pradera */
+.con-fondo section.encabezado {
+  background: transparent; border: none; box-shadow: none;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  padding: clamp(28px, 7vh, 72px) 0 36px;
+}
+.con-fondo .marco { background: rgba(255,255,255,.28); }
+.con-fondo details.ej, .con-fondo .callout { background: rgba(255,255,255,.45); border-color: rgba(255,255,255,.6); }
+.con-fondo .callout.alerta { background: rgba(248,236,232,.7); }
+.con-fondo .nota { background: rgba(248,236,232,.75); }

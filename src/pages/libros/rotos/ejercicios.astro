@@ -4,7 +4,12 @@ import Base from '../../../layouts/Base.astro';
 const chev = '<svg class="chev" viewBox="0 0 24 24" width="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
 ---
 <Base title="Ejercicios — ROTOS" description="Seis ejercicios gratuitos para acompañar a un niño o niña en duelo después de leer ROTOS.">
-  <section>
+  <div class="fondo-fijo" aria-hidden="true">
+    <img src="/img/rotos-pradera.webp" width="1672" height="941" alt="" />
+  </div>
+
+  <div class="con-fondo">
+  <section class="encabezado">
     <div class="wrap text">
       <a href="/libros/rotos/" style="font-size:14px;">← ROTOS</a>
       <span class="eyebrow" style="margin-top:18px;">Ejercicios · ROTOS</span>
@@ -13,7 +18,7 @@ const chev = '<svg class="chev" viewBox="0 0 24 24" width="20" fill="none" strok
     </div>
   </section>
 
-  <section style="padding-top:0;">
+  <section>
     <div class="wrap text">
       <div class="marco">
         <h3 style="margin-bottom:20px;">Sobre estos ejercicios</h3>
@@ -25,7 +30,7 @@ const chev = '<svg class="chev" viewBox="0 0 24 24" width="20" fill="none" strok
     </div>
   </section>
 
-  <section style="padding-top:0;">
+  <section>
     <div class="wrap text">
       <span class="eyebrow">Los ejercicios</span>
 
@@ -160,4 +165,5 @@ const chev = '<svg class="chev" viewBox="0 0 24 24" width="20" fill="none" strok
       </div>
     </div>
   </section>
+  </div>
 </Base>
