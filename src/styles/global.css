@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Janett';
+  src: url('/fonts/janett.woff2') format('woff2');
+  font-display: swap;
+}
+
 :root {
   --paper: #f1e5d6;
   --paper-2: #ebdccb;
@@ -218,3 +224,8 @@ section.sin-borde { border-top: none; }
   .hero-banner .titulo { position: static; padding: 28px 16px 8px; }
   .hero-banner { display: flex; flex-direction: column; }
 }
+
+/* El nombre del libro, con la letra de Janett */
+.letra-janett { font-family: 'Janett', var(--serif); font-weight: 400; letter-spacing: .02em; }
+.hero-banner h1.letra-janett { font-size: clamp(64px, 11vw, 150px); line-height: 1; }
+.logo.letra-janett { font-size: 28px; }
