@@ -1,0 +1,67 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'ROTOS, de Ruy Drisaldi, ilustrado por Laimutė Varkalaitė. Un libro ilustrado sobre el duelo en la infancia.' } = Astro.props;
+const path = Astro.url.pathname;
+const enEjercicios = path.startsWith('/libros/rotos/ejercicios');
+
+const nav = [
+  { href: '/libros/rotos/#sobre', label: 'El libro', current: !enEjercicios },
+  { href: '/libros/rotos/ejercicios/', label: 'Ejercicios', current: enEjercicios },
+  { href: '/libros/rotos/#autor', label: 'Autor', current: false },
+  { href: '/libros/rotos/#contacto', label: 'Contacto', current: false },
+];
+
+// Mientras el sitio esté en construcción, Google no lo indexa.
+const EN_CONSTRUCCION = true;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {EN_CONSTRUCCION && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    {EN_CONSTRUCCION && <div class="wip">Sitio en construcción · los textos marcados como provisorios todavía no son definitivos</div>}
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="logo" href="/libros/rotos/">ROTOS</a>
+        <nav class="nav" aria-label="Principal">
+          {nav.map((n) => (
+            <a href={n.href} aria-current={n.current ? 'page' : undefined}>{n.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap cols">
+        <div>
+          <p><strong>Si un niño, niña o adulto está en riesgo ahora mismo</strong>, llama al número de emergencias de tu país. Más información en <a href="/libros/rotos/ejercicios/#pedir-ayuda">cuándo pedir ayuda</a>.</p>
+          <p class="small">Este libro y sus ejercicios acompañan, no reemplazan, la atención de un profesional de la salud mental.</p>
+        </div>
+        <div>
+          <p><a href="/libros/rotos/">ROTOS</a> · <a href="/libros/rotos/ejercicios/">Ejercicios</a> · <a href="/libros/rotos/#contacto">Contacto</a></p>
+          <p class="small">© 2026 Ruy Drisaldi<br />Ilustraciones © Laimutė Varkalaitė</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

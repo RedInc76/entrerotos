@@ -1,0 +1,8 @@
+# Mientras el faro no exista, la raíz del dominio lleva al libro (302 = temporal)
+/          /libros/rotos/   302
+/libros/   /libros/rotos/   302
+/libros    /libros/rotos/   302
+
+# Atajo permanente para decir en voz alta
+/rotos     /libros/rotos/   301
+/rotos/    /libros/rotos/   301
