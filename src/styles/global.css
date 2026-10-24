@@ -347,3 +347,9 @@ section.sin-borde { border-top: none; }
   .con-fondo section.hoja-corta { margin-bottom: 34vh; }
   .portada { min-height: calc(100svh - 120px); }
 }
+
+/* Créditos: en celular, uno por renglón */
+@media (max-width: 760px) {
+  .portada .credits .cred { display: block; }
+  .portada .credits .sep { display: none; }
+}
