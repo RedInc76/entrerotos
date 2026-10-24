@@ -1,0 +1,82 @@
+---
+// PÁGINA TEMPORAL: visor de las ilustraciones del libro para mostrar en privado.
+// Para quitarla: borrar este archivo, la carpeta public/img/libro/ y el enlace "Ilustraciones" en src/layouts/Base.astro.
+import Base from '../../../layouts/Base.astro';
+
+const total = 13;
+const spreads = Array.from({ length: total }, (_, i) => {
+  const n = String(i + 1).padStart(2, '0');
+  const pag = i * 2 + 1;
+  return { src: `/img/libro/spread-${n}.webp`, mini: `/img/libro/spread-${n}-mini.webp`, label: `Páginas ${pag}-${pag + 1}` };
+});
+---
+<Base title="Ilustraciones — ROTOS">
+  <div class="visor" data-total={total}>
+    <div class="visor-cabecera">
+      <span class="eyebrow">Ilustraciones · Laimutė Varkalaitė</span>
+      <span class="visor-contador" aria-live="polite"><span id="pagina-actual">Páginas 1-2</span> · <span id="num-actual">1</span> / {total}</span>
+    </div>
+
+    <div class="visor-escenario">
+      <button class="visor-flecha prev" type="button" aria-label="Anterior">‹</button>
+      <div class="visor-libro">
+        {spreads.map((s, i) => (
+          <figure class:list={['visor-spread', { activo: i === 0 }]} data-label={s.label}>
+            <img src={s.src} alt={`ROTOS, ${s.label}`} loading={i < 2 ? 'eager' : 'lazy'} />
+          </figure>
+        ))}
+        <div class="visor-pliegue" aria-hidden="true"></div>
+      </div>
+      <button class="visor-flecha next" type="button" aria-label="Siguiente">›</button>
+    </div>
+
+    <div class="visor-miniaturas" role="tablist">
+      {spreads.map((s, i) => (
+        <button type="button" class:list={['mini', { activo: i === 0 }]} data-i={i} aria-label={s.label}>
+          <img src={s.mini} alt="" loading="lazy" />
+        </button>
+      ))}
+    </div>
+    <p class="visor-ayuda"><span class="solo-pc">Usa las flechas del teclado para pasar las páginas.</span><span class="solo-cel">Desliza con el dedo para pasar las páginas. Gira el celular para verlas más grandes.</span></p>
+  </div>
+
+  <script>
+    const visor = document.querySelector('.visor');
+    const spreads = [...visor.querySelectorAll('.visor-spread')];
+    const minis = [...visor.querySelectorAll('.mini')];
+    const numEl = document.getElementById('num-actual');
+    const pagEl = document.getElementById('pagina-actual');
+    let actual = 0;
+
+    function ir(i) {
+      actual = (i + spreads.length) % spreads.length;
+      spreads.forEach((s, k) => s.classList.toggle('activo', k === actual));
+      minis.forEach((m, k) => m.classList.toggle('activo', k === actual));
+      numEl.textContent = actual + 1;
+      pagEl.textContent = spreads[actual].dataset.label;
+      const tira = visor.querySelector('.visor-miniaturas');
+      const m = minis[actual];
+      tira.scrollTo({ left: m.offsetLeft - tira.clientWidth / 2 + m.clientWidth / 2, behavior: 'smooth' });
+      const siguiente = spreads[actual + 1]?.querySelector('img');
+      if (siguiente) siguiente.loading = 'eager';
+    }
+
+    visor.querySelector('.prev').addEventListener('click', () => ir(actual - 1));
+    visor.querySelector('.next').addEventListener('click', () => ir(actual + 1));
+    minis.forEach((m) => m.addEventListener('click', () => ir(Number(m.dataset.i))));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') ir(actual + 1);
+      if (e.key === 'ArrowLeft') ir(actual - 1);
+    });
+
+    let x0 = null;
+    const libro = visor.querySelector('.visor-libro');
+    libro.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    libro.addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) ir(actual + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+  </script>
+</Base>

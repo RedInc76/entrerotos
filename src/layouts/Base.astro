@@ -9,9 +9,12 @@ interface Props {
 const { title, description = 'ROTOS, de Ruy Drisaldi, ilustrado por Laimutė Varkalaitė. Un libro ilustrado sobre el duelo en la infancia.' } = Astro.props;
 const path = Astro.url.pathname;
 const enEjercicios = path.startsWith('/libros/rotos/ejercicios');
+const enIlustraciones = path.startsWith('/libros/rotos/ilustraciones');
 
 const nav = [
-  { href: '/libros/rotos/#sobre', label: 'El libro', current: !enEjercicios },
+  { href: '/libros/rotos/#sobre', label: 'El libro', current: !enEjercicios && !enIlustraciones },
+  // TEMPORAL: quitar esta línea cuando ya no se muestren las ilustraciones
+  { href: '/libros/rotos/ilustraciones/', label: 'Ilustraciones', current: enIlustraciones },
   { href: '/libros/rotos/ejercicios/', label: 'Ejercicios', current: enEjercicios },
   
   { href: '/libros/rotos/#contacto', label: 'Contacto', current: false },
