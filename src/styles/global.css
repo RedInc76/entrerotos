@@ -353,3 +353,7 @@ section.sin-borde { border-top: none; }
   .portada .credits .cred { display: block; }
   .portada .credits .sep { display: none; }
 }
+
+/* Menú fijo arriba al hacer scroll */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(241,229,214,.78); }
+section[id] { scroll-margin-top: 96px; }
